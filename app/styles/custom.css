@@ -1,0 +1,117 @@
+a:hover { text-decoration: none; }
+#menu {
+  min-height: 100%; 
+}
+.notif {
+	margin: 0 auto 20px;
+	padding: 10px;
+	width: 98%;
+
+	color: #FFF;
+	font-size: 16px;
+	font-family: 'Consolas', Arial, serif;
+	text-align: center;
+
+	box-shadow: 0 0 1px 2px #EEE;
+
+	cursor: pointer;
+}
+
+.notif-error {
+	background-color: #a94442;
+}
+.notif-success {
+	background-color: #8baf46;
+}
+.notif-announce {
+	background-color: #466baf;
+}
+
+/* Décale vers le bas pour ne pas cacher le logo */
+.sidebar > .sidebarMenuWrapper { top: 130px; overflow-y: hidden; }
+
+.hide { display: none; }
+
+.no-margin { margin: 0; }
+
+footer {
+	color: #AAA;
+	text-align: center;
+	line-height: 2;
+}
+footer hr { 
+	width: 90%; 
+	border: 1px solid #444;
+	margin-bottom: 10px;
+}
+footer a { color: #EEE; margin: 0 5px; }
+footer a:hover { text-decoration: none; }
+
+input[type=text] { color: #000; }
+
+.widget .widget-head h4.heading { color: #DDD;}
+
+.transp { opacity:0; }
+
+/* fix the issue with login's buttons */
+.btn { position: relative; }
+
+/* jQuery Countdown styles 2.0.0. */
+.is-countdown {
+	border: 1px solid #ccc;
+	background-color: #eee;
+}
+.countdown-rtl {
+	direction: rtl;
+}
+.countdown-holding span {
+	color: #888;
+}
+.countdown-row {
+	clear: both;
+	width: 100%;
+	padding: 0 2px;
+	text-align: center;
+}
+.countdown-show1 .countdown-section {
+	width: 98%;
+}
+.countdown-show2 .countdown-section {
+	width: 48%;
+}
+.countdown-show3 .countdown-section {
+	width: 32.5%;
+}
+.countdown-show4 .countdown-section {
+	width: 24.5%;
+}
+.countdown-show5 .countdown-section {
+	width: 19.5%;
+}
+.countdown-show6 .countdown-section {
+	width: 16.25%;
+}
+.countdown-show7 .countdown-section {
+	width: 14%;
+}
+.countdown-section {
+	display: block;
+	float: left;
+	font-size: 75%;
+	text-align: center;
+}
+.countdown-amount {
+    font-size: 200%;
+}
+.countdown-period {
+    display: block;
+}
+.countdown-descr {
+	display: block;
+	width: 100%;
+}
+
+.no-display {
+    height: 0;
+    overflow: hidden;
+}

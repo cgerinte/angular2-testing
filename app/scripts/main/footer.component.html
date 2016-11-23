@@ -1,0 +1,18 @@
+<footer>
+    <br/>
+    <hr>
+
+    <div *ngIf="lang == 'fr'">
+        <a href="/contact">Contact</a> |
+        <a target="_blank" href="http://www.sirdata.com/jobs/">Jobs</a> |
+        <a target="_blank" href="http://www.sirdata.com/mentions-legales/">Mentions Légales</a>
+    </div>
+    <div *ngIf="lang != 'fr'">
+        <a href="/contact">Contact Us</a> |
+        <a target="_blank" href="http://www.sirdata.com/job/">Jobs</a> |
+        <a target="_blank" href="http://www.sirdata.com/legal-mentions/">Legal Mentions</a>
+    </div>
+    2012 - <span id="thisYear"></span> Sirdata.com
+</footer>
+
+<script> $('#thisYear').html(new Date().getFullYear()); </script>
