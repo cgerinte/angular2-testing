@@ -11,11 +11,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var AccountComponent = (function () {
     function AccountComponent() {
+        this.activeTab = 'details';
     }
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', String)
+    ], AccountComponent.prototype, "activeTab", void 0);
     AccountComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'my-account',
             templateUrl: 'account.component.html'
         }), 
         __metadata('design:paramtypes', [])

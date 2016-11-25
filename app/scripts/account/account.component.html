@@ -8,11 +8,11 @@
 
 			<nav class="widget-head">
 				<ul>
-					<li role="presentation"><a routerLink="tab-details" class="glyphicons edit">
+					<li [class.active]="activeTab=='details'"><a (click)="activeTab='details'" style="cursor:pointer">
 						{{ 'ACCOUNT.TAB_ACCOUNT' | getText }}</a></li>
-					<li role="presentation"><a routerLink="tab-settings" class="glyphicons settings">
+					<li [class.active]="activeTab=='password'"><a (click)="activeTab='password'" style="cursor:pointer">
 						{{ 'ACCOUNT.TAB_PSW' | getText }}</a></li>
-					<li role="presentation"><a routerLink="tab-billing" class="glyphicons usd">
+					<li [class.active]="activeTab=='billing'"><a (click)="activeTab='billing'" style="cursor:pointer">
 						{{ 'ACCOUNT.TAB_BILLING' | getText }}</a></li>
 				</ul>
 			</nav>
@@ -21,8 +21,20 @@
 				<div class="tab-content">
 
 					<!-- Tab content -->
-					<div class="tab-pane active">
-						<router-outlet></router-outlet>
+					<div class="tab-pane" [class.active]="activeTab=='details'">
+						<form-account></form-account>
+					</div>
+					<!-- // Tab content END -->
+
+					<!-- Tab content -->
+					<div class="tab-pane" [class.active]="activeTab=='password'">
+						<form-password></form-password>
+					</div>
+					<!-- // Tab content END -->
+
+					<!-- Tab content -->
+					<div class="tab-pane" [class.active]="activeTab=='billing'">
+						<form-billing></form-billing>
 					</div>
 					<!-- // Tab content END -->
 

@@ -16,7 +16,7 @@ export class FormAccountComponent implements OnInit {
 	constructor(private accountSrvc: AccountService) {}
 
 	ngOnInit() {
-		this.partner = this.accountSrvc.getAccount();
+		this.partner = this.accountSrvc.getAccount(1020);
 		this.countries = this.accountSrvc.getCountries();
 	}
 

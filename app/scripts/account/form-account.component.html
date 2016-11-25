@@ -1,12 +1,13 @@
-<form name="formA" class="form-horizontal" #myFormA="ngForm">
+<form name="form" class="form-horizontal" #myFormA="ngForm">
 
-	<!-- Row -->
 	<div class="row">
 
 		<!-- Column -->
 		<div class="col-md-6">
+
 			<div class="form-group">
 				<label class="col-md-3 control-label center" for="lastName">{{ 'FORM_FIELD.LASTNAME' | getText }}</label>
+
 				<div class="col-md-8">
 					<input type="text" id="lastName" class="form-control" name="lastName" [(ngModel)]="partner.lastName" />
 				</div>
@@ -14,6 +15,7 @@
 
 			<div class="form-group">
 				<label class="col-md-3 control-label center" for="firstName">{{ 'FORM_FIELD.FIRSTNAME' | getText }}</label>
+
 				<div class="col-md-8">
 					<input type="text" id="firstName" class="form-control" name="firstName" [(ngModel)]="partner.firstName" />
 				</div>
@@ -21,19 +23,23 @@
 
 			<div class="form-group" [class.has-error]="myEmail.errors">
 				<label class="col-md-3 control-label center" for="inputEmail">{{ 'FORM_FIELD.EMAIL' | getText }}*</label>
+
 				<div class="col-md-8">
 					<input type="email" id="inputEmail" class="form-control" name="email" #myEmail="ngModel" required
 					       [(ngModel)]="partner.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}">
 					<div *ngIf="myEmail.errors"><span class="help-block">Invalid email</span></div>
 				</div>
 			</div>
+
 		</div>
 		<!-- // Column END -->
 
 		<!-- Column -->
 		<div class="col-md-6">
+
 			<div class="form-group" [class.has-error]="myPhone.errors">
 				<label class="col-md-3 control-label center" for="inputPhone">{{ 'FORM_FIELD.PHONE' | getText }}</label>
+
 				<div class="col-md-8">
 					<input type="tel" id="inputPhone" class="form-control" name="phone" #myPhone="ngModel"
 					       [(ngModel)]="partner.phone" pattern="\+?\s*(\d+\s?){8,}"/>
@@ -43,6 +49,7 @@
 
 			<div class="form-group">
 				<label class="col-md-3 control-label center" for="inputCountry">{{ 'FORM_FIELD.COUNTRY' | getText }}</label>
+
 				<div class="col-md-8">
 					<select id="inputCountry" class="form-control" name="selectCountry" [(ngModel)]="partner.countryID">
 						<option *ngFor="let country of countries" value="{{ country.id }}">{{ country.name }}</option>
@@ -52,30 +59,26 @@
 
 			<div class="form-group">
 				<label class="col-md-3 control-label center" for="inputCompany">{{ 'FORM_FIELD.COMPANY' | getText }}</label>
+
 				<div class="col-md-8">
 					<input type="text" id="inputCompany" class="form-control" name="company" [(ngModel)]="partner.company" />
 				</div>
 			</div>
+
 		</div>
 		<!-- // Column END -->
 
 	</div>
-	<!-- // Row END -->
 
-	<div class="separator line bottom"></div>
-
-	<!-- Form actions -->
-	<div class="separator top">
+	<div class="separator top"></div>
+	<div class="col-md-offset-1"><div class="form-actions">
 		<button type="submit" class="btn btn-primary" [disabled]="myFormA.form.pristine || !myFormA.form.valid" (click)="updateAccount()">
 			<i class="fa fa-check"></i>&nbsp; {{ 'FORM_FIELD.BTN_SAVE' | getText }}
 		</button>
+
 		<button type="submit" class="btn btn-primary" disabled>
-			<i class="fa fa-refresh"></i>&nbsp; {{ 'FORM_FIELD.BTN_SAVING' | getText }}
+			<i class="fa fa-refresh fa-spin"></i>&nbsp; {{ 'FORM_FIELD.BTN_SAVING' | getText }}
 		</button>
-		<button *ngIf="!partner" type="submit" class="btn btn-primary" disabled>
-			<i class="fa fa-spinner fa-spin"></i>&nbsp; {{ 'FORM_FIELD.BTN_LOADING' | getText }}
-		</button>
-	</div>
-	<!-- // Form actions END -->
+	</div></div>
 
 </form>

@@ -1,8 +1,9 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   moduleId: module.id,
-  selector: 'my-account',
   templateUrl: 'account.component.html'
 })
-export class AccountComponent { }
+export class AccountComponent {
+	@Input() activeTab: string = 'details';
+}

@@ -5,11 +5,10 @@ import {AppComponent}       from './app.component';
 import {MenuComponent}      from './scripts/main/menu.component';
 import {FooterComponent}    from "./scripts/main/footer.component";
 
-import {RoutingModule}      from './routing.module';
-import {DashboardModule}    from "./scripts/main/dashboard.module";
-import {AccountModule}      from "./scripts/account/account.module";
-import {TextPipeModule}     from "./scripts/filters/text-pipe.module";
-import {FormPasswordComponent} from "./scripts/account/form-password.component.ts";
+import {RoutingModule}          from './routing.module';
+import {DashboardModule}        from "./scripts/main/dashboard.module";
+import {AccountModule}          from "./scripts/account/account.module";
+import {TextPipeModule}         from "./scripts/filters/text-pipe.module";
 
 @NgModule({
 	imports: [

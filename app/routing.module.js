@@ -11,13 +11,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var AppPath_1 = require('./scripts/main/AppPath');
-var account_component_1 = require('./scripts/account/account.component');
 var dashboard_component_1 = require("./scripts/main/dashboard.component");
+var account_component_1 = require("./scripts/account/account.component");
 var appRoutes = [
     { path: AppPath_1.APP_PATH.HOME, component: dashboard_component_1.DashboardComponent },
     { path: AppPath_1.APP_PATH.ACCOUNT, component: account_component_1.AccountComponent },
-    { path: '', redirectTo: AppPath_1.APP_PATH.HOME, pathMatch: 'full'
-    },
+    { path: '', redirectTo: AppPath_1.APP_PATH.HOME, pathMatch: 'full' },
 ];
 var RoutingModule = (function () {
     function RoutingModule() {
