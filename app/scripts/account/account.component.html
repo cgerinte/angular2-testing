@@ -1,43 +1,35 @@
 <div id="content">
-  <h1 class="bg-white content-heading border-bottom">{{ 'ACCOUNT.TITLE' | getText }} &nbsp;&nbsp;
-    <i loader class="fa fa-spinner fa-spin"></i></h1>
+	<h1 class="bg-white content-heading border-bottom">{{ 'MENU.ACCOUNT' | getText }} </h1>
 
-  <div class="innerAll spacing-x2">
+	<div class="innerAll spacing-x2">
 
-    <!-- Widget -->
-    <div class="widget widget-tabs widget-tabs-gray border-bottom-none">
+		<!-- Widget -->
+		<div class="widget widget-tabs widget-tabs-gray border-bottom-none">
 
-      <div class="widget-head">
-        <ul>
-          <li class="active"><a class="glyphicons edit" href="#account-details" data-toggle="tab"><i></i>{{ 'ACCOUNT.TAB_ACCOUNT' | getText }}</a></li>
-          <li><a class="glyphicons settings" href="#account-settings" data-toggle="tab"><i></i>{{ 'ACCOUNT.TAB_PSW' | getText }}</a></li>
-          <li><a class="glyphicons usd" href="#account-billing" data-toggle="tab"><i></i>{{ 'ACCOUNT.TAB_BILLING' | getText }}</a></li>
-        </ul>
-      </div>
+			<nav class="widget-head">
+				<ul>
+					<li role="presentation"><a routerLink="tab-details" class="glyphicons edit">
+						{{ 'ACCOUNT.TAB_ACCOUNT' | getText }}</a></li>
+					<li role="presentation"><a routerLink="tab-settings" class="glyphicons settings">
+						{{ 'ACCOUNT.TAB_PSW' | getText }}</a></li>
+					<li role="presentation"><a routerLink="tab-billing" class="glyphicons usd">
+						{{ 'ACCOUNT.TAB_BILLING' | getText }}</a></li>
+				</ul>
+			</nav>
 
-      <div class="widget-body">
-        <div class="tab-content">
+			<div class="widget-body">
+				<div class="tab-content">
 
-          <!-- Tab content -->
-          <div id="account-details" class="tab-pane active">
-            <form-account></form-account>
-          </div>
-          <!-- // Tab content END -->
+					<!-- Tab content -->
+					<div class="tab-pane active">
+						<router-outlet></router-outlet>
+					</div>
+					<!-- // Tab content END -->
 
-          <!-- Tab content -->
-          <div class="tab-pane" id="account-settings"></div>
-          <!-- // Tab content END -->
+				</div>
+			</div>
+		</div>
+		<!-- // Widget END -->
 
-          <!-- Tab content -->
-          <div class="tab-pane" id="account-billing"></div>
-          <!-- // Tab content END -->
-
-        </div>
-
-      </div>
-
-    </div>
-    <!-- // Widget END -->
-
-  </div>
+	</div>
 </div>

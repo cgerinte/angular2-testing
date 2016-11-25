@@ -5,6 +5,4 @@ import {Component} from '@angular/core';
   selector: 'my-account',
   templateUrl: 'account.component.html'
 })
-export class AccountComponent {
-
-}
+export class AccountComponent { }

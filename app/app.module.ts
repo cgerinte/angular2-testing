@@ -1,5 +1,5 @@
-import { NgModule }       from '@angular/core';
-import { CommonModule }   from '@angular/common';
+import {NgModule}       from '@angular/core';
+import {CommonModule}   from '@angular/common';
 
 import {AppComponent}       from './app.component';
 import {MenuComponent}      from './scripts/main/menu.component';
@@ -9,14 +9,16 @@ import {RoutingModule}      from './routing.module';
 import {DashboardModule}    from "./scripts/main/dashboard.module";
 import {AccountModule}      from "./scripts/account/account.module";
 import {TextPipeModule}     from "./scripts/filters/text-pipe.module";
+import {FormPasswordComponent} from "./scripts/account/form-password.component.ts";
 
 @NgModule({
-  imports: [
-    CommonModule, RoutingModule,
-    DashboardModule, AccountModule,
-    TextPipeModule
-  ],
-  declarations: [ AppComponent, MenuComponent, FooterComponent ],
-  bootstrap: [ AppComponent ]
+	imports: [
+		CommonModule, RoutingModule,
+		DashboardModule, AccountModule,
+		TextPipeModule
+	],
+	declarations: [ AppComponent, MenuComponent, FooterComponent ],
+	bootstrap: [ AppComponent ]
 })
-export class AppModule { }
+export class AppModule {
+}

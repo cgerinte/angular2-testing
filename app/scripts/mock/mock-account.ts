@@ -1,4 +1,5 @@
-import {Partner} from "./partner";
+import {Partner} from "../models/partner";
+
 export const ACCOUNT: Partner = {
   id: 1,
   email: 'cge@sirdata.fr',

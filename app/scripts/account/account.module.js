@@ -9,19 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var common_1 = require("@angular/common");
 var forms_1 = require('@angular/forms');
-var platform_browser_1 = require("@angular/platform-browser");
-var account_component_1 = require('./account.component');
-var account_form_component_1 = require("./account.form.component");
-var account_service_1 = require("./account.service");
 var text_pipe_module_1 = require("../filters/text-pipe.module");
+var tab_routing_module_1 = require("./tab-routing.module");
+var account_component_1 = require('./account.component');
+var form_account_component_1 = require("./form-account.component");
+var form_password_component_1 = require("./form-password.component");
+var form_billing_component_1 = require("./form-billing.component");
+var account_service_1 = require("./account.service");
 var AccountModule = (function () {
     function AccountModule() {
     }
     AccountModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, text_pipe_module_1.TextPipeModule],
-            declarations: [account_component_1.AccountComponent, account_form_component_1.AccountFormComponent],
+            imports: [common_1.CommonModule, forms_1.FormsModule, text_pipe_module_1.TextPipeModule, tab_routing_module_1.TabRoutingModule],
+            declarations: [account_component_1.AccountComponent, form_account_component_1.FormAccountComponent, form_password_component_1.FormPasswordComponent, form_billing_component_1.FormBillingComponent],
             providers: [account_service_1.AccountService],
         }), 
         __metadata('design:paramtypes', [])
