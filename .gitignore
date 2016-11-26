@@ -1,3 +1,5 @@
 node_modules/
 .idea/
+app/scripts/vendor/bootstrap-flat-plus/
 app/*.js
+angular2-testing.iml
