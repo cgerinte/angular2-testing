@@ -1,0 +1,66 @@
+<form name="form" class="form-horizontal" #myFormB="ngForm">
+
+	<div class="row">
+
+		<!-- Column -->
+		<div class="col-md-10">
+
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="domicil">{{ 'FORM_FIELD.DOMICIL' | getText }}</label>
+
+				<div class="col-md-8">
+					<input type="text" id="domicil" class="form-control" name="domicil" required
+					       [(ngModel)]="billing.domicil" maxlength="24"/>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="code_bic">BIC</label>
+
+				<div class="col-md-8">
+					<input type="text" id="code_bic" class="form-control" name="code_bic" required
+					       [(ngModel)]="billing.bic" maxlength="11"/>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="code_iban">IBAN</label>
+
+				<div class="col-md-8">
+					<input type="text" id="code_iban" class="form-control" name="code_iban" required
+					       [(ngModel)]="billing.iban" maxlength="34"/>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="inputAddress">{{ 'FORM_FIELD.ADDRESS' | getText }}</label>
+
+				<div class="col-md-8">
+					<textarea id="inputAddress" class="form-control" name="address" rows="5" style="resize:none" required
+					          [(ngModel)]="billing.address"></textarea>
+				</div>
+			</div>
+
+			<div class="separator top"></div>
+			<div class="form-group">
+				<label class="col-md-4 control-label"></label>
+
+				<div class="form-actions col-md-8">
+					<button *ngIf="!loading" class="btn btn-primary col-md-12"
+					        [disabled]="myFormB.form.pristine || !myFormB.form.valid"
+					        (click)="update();myFormB.form.markAsPristine()">
+						<i class="fa fa-check"></i>&nbsp; {{ 'FORM_FIELD.BTN_SAVE' | getText }}
+					</button>
+
+					<button *ngIf="loading" class="btn btn-primary col-md-12" disabled>
+						<i class="fa fa-refresh fa-spin"></i>&nbsp; {{ 'FORM_FIELD.BTN_SAVING' | getText }}
+					</button>
+				</div>
+			</div>
+
+		</div>
+		<!-- // Column END -->
+
+	</div>
+
+</form>

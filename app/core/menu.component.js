@@ -9,25 +9,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var dashboard_component_1 = require("./dashboard/dashboard.component");
-var account_component_1 = require("./account/account.component");
-var AppPath_1 = require('./shared/AppPath');
-var appRoutes = [
-    { path: AppPath_1.APP_PATH.HOME, component: dashboard_component_1.DashboardComponent },
-    { path: AppPath_1.APP_PATH.ACCOUNT, component: account_component_1.AccountComponent },
-    { path: '', redirectTo: AppPath_1.APP_PATH.HOME, pathMatch: 'full' }
-];
-var RoutingModule = (function () {
-    function RoutingModule() {
+var AppPath_1 = require("../shared/AppPath");
+var MenuComponent = (function () {
+    function MenuComponent() {
+        this.path = AppPath_1.APP_PATH;
+        this.email = 'admin@sirdata.com';
     }
-    RoutingModule = __decorate([
-        core_1.NgModule({
-            imports: [router_1.RouterModule.forRoot(appRoutes)],
-            exports: [router_1.RouterModule]
+    MenuComponent.prototype.toggleArrow = function () {
+        var elem = $('#toggleMenu').find('i');
+        if (elem.hasClass('fa-arrow-left')) {
+            elem.removeClass('fa-arrow-left');
+            elem.addClass('fa-arrow-down');
+        }
+        else {
+            elem.removeClass('fa-arrow-down');
+            elem.addClass('fa-arrow-left');
+        }
+    };
+    MenuComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'my-menu',
+            templateUrl: 'menu.component.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], RoutingModule);
-    return RoutingModule;
+    ], MenuComponent);
+    return MenuComponent;
 }());
-exports.RoutingModule = RoutingModule;
+exports.MenuComponent = MenuComponent;

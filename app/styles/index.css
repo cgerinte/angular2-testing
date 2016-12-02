@@ -1,15 +1,15 @@
-@import '../scripts/vendor/bootstrap-flat-plus/assets/components/library/bootstrap/css/bootstrap.min.css';
-@import '../scripts/vendor/bootstrap-flat-plus/assets/components/library/icons/fontawesome/assets/css/font-awesome.min.css';
-@import '../scripts/vendor/bootstrap-flat-plus/assets/components/library/icons/glyphicons/assets/css/glyphicons_regular.css';
-@import '../scripts/vendor/bootstrap-flat-plus/assets/components/library/icons/glyphicons/assets/css/glyphicons_social.css';
-@import '../scripts/vendor/bootstrap-flat-plus/assets/components/library/icons/glyphicons/assets/css/glyphicons_filetypes.css';
+@import '/vendor/bootstrap-flat-plus/assets/components/library/bootstrap/css/bootstrap.min.css';
+@import '/vendor/bootstrap-flat-plus/assets/components/library/icons/fontawesome/assets/css/font-awesome.min.css';
+@import '/vendor/bootstrap-flat-plus/assets/components/library/icons/glyphicons/assets/css/glyphicons_regular.css';
+@import '/vendor/bootstrap-flat-plus/assets/components/library/icons/glyphicons/assets/css/glyphicons_social.css';
+@import '/vendor/bootstrap-flat-plus/assets/components/library/icons/glyphicons/assets/css/glyphicons_filetypes.css';
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,700);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
-@import '../scripts/vendor/bootstrap-flat-plus/assets/components/library/icons/pictoicons/css/picto.css';
-@import '../scripts/vendor/bootstrap-flat-plus/assets/components/library/animate/animate.min.css';
-@import '../scripts/vendor/bootstrap-flat-plus/assets/components/library/jquery-ui/css/jquery-ui.min.css';
-@import '../scripts/vendor/bootstrap-flat-plus/assets/components/modules/admin/forms/elements/bootstrap-datepicker/assets/lib/css/bootstrap-datepicker.css';
-@import '../scripts/vendor/bootstrap-flat-plus/assets/components/modules/admin/charts/easy-pie/assets/lib/css/jquery.easy-pie-chart.css';
+@import '/vendor/bootstrap-flat-plus/assets/components/library/icons/pictoicons/css/picto.css';
+@import '/vendor/bootstrap-flat-plus/assets/components/library/animate/animate.min.css';
+@import '/vendor/bootstrap-flat-plus/assets/components/library/jquery-ui/css/jquery-ui.min.css';
+@import '/vendor/bootstrap-flat-plus/assets/components/modules/admin/forms/elements/bootstrap-datepicker/assets/lib/css/bootstrap-datepicker.css';
+@import '/vendor/bootstrap-flat-plus/assets/components/modules/admin/charts/easy-pie/assets/lib/css/jquery.easy-pie-chart.css';
 /* --- LOADING [css.bootstrap.min] from scripts/vendor/bootstrap-flat-plus/assets/components/library/bootstrap/css/bootstrap.min.css */
 /* --- LOADING [css.font-awesome.min] from scripts/vendor/bootstrap-flat-plus/assets/components/library/icons/fontawesome/assets/css/font-awesome.min.css */
 /* --- LOADING [css.glyphicons_regular] from scripts/vendor/bootstrap-flat-plus/assets/components/library/icons/glyphicons/assets/css/glyphicons_regular.css */

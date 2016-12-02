@@ -1,0 +1,54 @@
+<div id="content">
+	<h1 class="bg-white content-heading border-bottom">{{ 'MENU.ACCOUNT' | getText }}&nbsp;&nbsp;
+		<i *ngIf="loading" class="fa fa-spinner fa-spin"></i></h1>
+
+	<div *ngIf="error" class="separator top">
+		<div class="notif {{ classMsg }}" style="margin:auto;text-align:center;cursor:pointer" (click)="clearMsg()">
+			{{ message | getError }}
+		</div>
+	</div>
+
+	<div class="innerAll spacing-x2">
+
+		<!-- Widget -->
+		<div class="widget widget-tabs widget-tabs-gray border-bottom-none">
+
+			<nav class="widget-head">
+				<ul>
+					<li [class.active]="activeTab=='details'"><a (click)="activeTab='details'" style="cursor:pointer">
+						{{ 'ACCOUNT.TAB_ACCOUNT' | getText }}</a></li>
+					<li [class.active]="activeTab=='password'"><a (click)="activeTab='password'" style="cursor:pointer">
+						{{ 'ACCOUNT.TAB_PSW' | getText }}</a></li>
+					<li [class.active]="activeTab=='billing'"><a (click)="activeTab='billing'" style="cursor:pointer">
+						{{ 'ACCOUNT.TAB_BILLING' | getText }}</a></li>
+				</ul>
+			</nav>
+
+			<div class="widget-body">
+				<div class="tab-content">
+
+					<!-- Tab content -->
+					<div class="tab-pane" [class.active]="activeTab=='details'">
+						<form-account (message)="onMessage($event)" [partner]="partner"></form-account>
+					</div>
+					<!-- // Tab content END -->
+
+					<!-- Tab content -->
+					<div class="tab-pane" [class.active]="activeTab=='password'">
+						<form-password (message)="onMessage($event)"></form-password>
+					</div>
+					<!-- // Tab content END -->
+
+					<!-- Tab content -->
+					<div class="tab-pane" [class.active]="activeTab=='billing'">
+						<form-billing (message)="onMessage($event)" [billing]="billing"></form-billing>
+					</div>
+					<!-- // Tab content END -->
+
+				</div>
+			</div>
+		</div>
+		<!-- // Widget END -->
+
+	</div>
+</div>

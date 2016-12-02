@@ -1,23 +1,25 @@
-import {NgModule}       from '@angular/core';
-import {CommonModule}   from '@angular/common';
+import { NgModule }       from '@angular/core';
+import { LocationStrategy, HashLocationStrategy }   from '@angular/common';
 
-import {AppComponent}       from './app.component';
-import {MenuComponent}      from './scripts/main/menu.component';
-import {FooterComponent}    from "./scripts/main/footer.component";
+import { AppComponent }       from './app.component';
+import { DashboardModule }    from "./dashboard/dashboard.module";
 
-import {RoutingModule}          from './routing.module';
-import {DashboardModule}        from "./scripts/main/dashboard.module";
-import {AccountModule}          from "./scripts/account/account.module";
-import {TextPipeModule}         from "./scripts/filters/text-pipe.module";
+import { AccountModule }      from "./account/account.module";
+import { CoreModule }         from "./core/core.module";
+import { RoutingModule }      from './routing.module';
+import { HttpClient }         from "./shared/http-client";
 
 @NgModule({
-	imports: [
-		CommonModule, RoutingModule,
-		DashboardModule, AccountModule,
-		TextPipeModule
+	imports     : [
+		CoreModule, RoutingModule,
+		DashboardModule, AccountModule
 	],
-	declarations: [ AppComponent, MenuComponent, FooterComponent ],
-	bootstrap: [ AppComponent ]
+	exports     : [ AppComponent ],
+	declarations: [ AppComponent ],
+	providers   : [
+		{ provide: LocationStrategy, useClass: HashLocationStrategy },
+		{ provide: HttpClient, useClass: HttpClient }
+	],
+	bootstrap   : [ AppComponent ]
 })
-export class AppModule {
-}
+export class AppModule {}
