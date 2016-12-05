@@ -10,25 +10,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
-var app_component_1 = require('./app.component');
-var dashboard_module_1 = require("./dashboard/dashboard.module");
-var account_module_1 = require("./account/account.module");
-var core_module_1 = require("./core/core.module");
 var routing_module_1 = require('./routing.module');
-var http_client_1 = require("./shared/http-client");
+var http_client_1 = require("./_shared/http-client");
+var app_component_1 = require('./app.component');
+var auth_guard_1 = require("./_guards/auth.guard");
+var alert_service_1 = require("./_directives/alert.service");
+var auth_module_1 = require("./auth/auth.module");
+var home_module_1 = require("./core/home.module");
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [
-                core_module_1.CoreModule, routing_module_1.RoutingModule,
-                dashboard_module_1.DashboardModule, account_module_1.AccountModule
-            ],
+            imports: [routing_module_1.RoutingModule, auth_module_1.AuthModule, home_module_1.HomeModule],
             exports: [app_component_1.AppComponent],
             declarations: [app_component_1.AppComponent],
-            providers: [
+            providers: [auth_guard_1.AuthGuard,
                 { provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy },
+                { provide: alert_service_1.AlertService, useClass: alert_service_1.AlertService },
                 { provide: http_client_1.HttpClient, useClass: http_client_1.HttpClient }
             ],
             bootstrap: [app_component_1.AppComponent]

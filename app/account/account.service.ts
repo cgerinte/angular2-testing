@@ -5,19 +5,16 @@ import { Observable }       from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
-import { GlobalService }  from "../global.service";
-import { COUNTRIES }      from "../mock/mock-countries";
-import { Partner }        from "../models/partner";
-import { apiUrl }         from "../shared/constants";
-import { HttpClient }     from "../shared/http-client";
+import { Partner }          from "../_models/partner";
+import { apiUrl }           from "../_shared/constants";
+import { HttpClient }       from "../_shared/http-client";
+import { COUNTRIES }        from "../_mock/mock-countries";
 
 @Injectable()
-export class AccountService extends GlobalService {
+export class AccountService {
 	private URL = apiUrl + "account/";
 
-	constructor(private http: HttpClient) {
-		super();
-	}
+	constructor(private http: HttpClient) {}
 
 	get(id: number): Observable<Partner> {
 		return this.http.get(this.URL + id)
@@ -35,7 +32,7 @@ export class AccountService extends GlobalService {
 	}
 
 	getCountries() {
-		return COUNTRIES;
+		return Observable.of(COUNTRIES);
 	}
 
 }

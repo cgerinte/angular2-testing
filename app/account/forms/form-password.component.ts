@@ -10,7 +10,7 @@ import { AccountService }   from "../account.service";
 })
 export class FormPasswordComponent {
 	@Input() psw = { oldPsw: "", newPsw: "", test: "" };
-	@Output() message = new EventEmitter<string>();
+	@Output() message = new EventEmitter();
 
 	loading: number = 0;
 
@@ -18,21 +18,19 @@ export class FormPasswordComponent {
 
 	update(): void {
 		if ( this.psw.newPsw !== this.psw.test ) {
-			this.message.emit("PASSWORD_DIFF");
+			this.message.emit({ text: "PASSWORD_DIFF", status: 400 });
 			return;
 		}
 
 		this.loading++;
-		this.accountSrvc.updatePsw(this.psw).subscribe(
-			() => {
+		this.accountSrvc.updatePsw(this.psw).subscribe( () => {
 				this.psw = { oldPsw: "", newPsw: "", test: "" };
 				this.loading--;
 				this.message.emit("PASSWORD_OK");
-			},
-			this.errorWS
+			}, this.errorWS
 		);
 	}
 
-	errorWS(err: any) { this.message.emit((err instanceof Response) ? err.text() : err); this.loading--; };
+	errorWS(err: Response) { this.message.emit(err); this.loading--; };
 
 }

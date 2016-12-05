@@ -1,25 +1,26 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Response }         from '@angular/http';
 
-import { Billing }        from "../models/billing";
-import { Partner }        from "../models/partner";
-import { AccountService } from "./account.service";
-import { BillingService } from "./billing.service";
+import { Billing }          from "../_models/billing";
+import { Partner }          from "../_models/partner";
+import { AlertService }     from "../_directives/alert.service";
+import { AccountService }   from "./account.service";
+import { BillingService }   from "./billing.service";
 
 @Component({
-	moduleId: module.id,
+	moduleId   : module.id,
 	templateUrl: 'account.component.html',
-	providers: [ AccountService, BillingService ]
+	providers  : [ AccountService, BillingService ]
 })
 export class AccountComponent implements OnInit {
-	@Input() activeTab: string = 'password';
+	@Input() activeTab: string = 'details';
 	@Input() partner: Partner = new Partner;
 	@Input() billing: Billing = new Billing;
 
-	loading: number = 2;
-	message: string;
-	classMsg: string;
+	loading: number = 1;
 
-	constructor(private accountSrvc: AccountService,
+	constructor(private alertSrvc: AlertService,
+	            private accountSrvc: AccountService,
 	            private billingSrvc: BillingService) {}
 
 	ngOnInit() {
@@ -28,30 +29,21 @@ export class AccountComponent implements OnInit {
 			(result: Partner) => {
 				this.partner = result;
 				this.loading--;
-			},
-			this.errorWS
-		);
-		this.billingSrvc.get(id).subscribe(
+			}, this.errorWS );
+		/*this.billingSrvc.get(id).subscribe(
 			(result: Billing) => {
 				this.billing = result;
 				this.loading--;
-			},
-			this.errorWS
-		);
+			}, this.errorWS );*/
 	}
-	
-	onMessage(msg: string) { this.setMessage(msg); }
-	setMessage(msg: string, status: number = 200) {
-		console.log(msg);
-		this.message = msg;
-		this.classMsg = (status == 200) ? "notif-success" : "notif-error";
-	}
-	clearMsg(): void { this.message = null; }
 
-	errorWS(err: any) {
-		console.log(err.toString());
-		this.setMessage(err.text(), err.statusCode);
+	onMessage(msg: [string, number]) {
+		this.alertSrvc.dispatch(msg);
+	}
+
+	errorWS(err: Response|any) {
 		this.loading--;
+		console.error("After Dispatch...");
 	}
 
 }

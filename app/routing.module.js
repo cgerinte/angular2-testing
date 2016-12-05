@@ -10,13 +10,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+var AppPath_1 = require('./_shared/AppPath');
+var auth_guard_1 = require("./_guards/auth.guard");
+var login_component_1 = require("./auth/login.component");
+var home_component_1 = require("./core/home.component");
 var dashboard_component_1 = require("./dashboard/dashboard.component");
 var account_component_1 = require("./account/account.component");
-var AppPath_1 = require('./shared/AppPath');
 var appRoutes = [
-    { path: AppPath_1.APP_PATH.HOME, component: dashboard_component_1.DashboardComponent },
-    { path: AppPath_1.APP_PATH.ACCOUNT, component: account_component_1.AccountComponent },
-    { path: '', redirectTo: AppPath_1.APP_PATH.HOME, pathMatch: 'full' }
+    { path: AppPath_1.APP_PATH.LOGIN, component: login_component_1.LoginComponent },
+    {
+        path: '',
+        component: home_component_1.HomeComponent,
+        canActivate: [auth_guard_1.AuthGuard],
+        canActivateChild: [auth_guard_1.AuthGuard],
+        children: [
+            { path: AppPath_1.APP_PATH.HOME, component: dashboard_component_1.DashboardComponent },
+            { path: AppPath_1.APP_PATH.ACCOUNT, component: account_component_1.AccountComponent },
+        ]
+    },
+    { path: '**', redirectTo: AppPath_1.APP_PATH.HOME }
 ];
 var RoutingModule = (function () {
     function RoutingModule() {

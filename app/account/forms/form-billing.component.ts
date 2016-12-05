@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Response }         from '@angular/http';
 
-import { Billing }          from "../../models/billing";
+import { Billing }          from "../../_models/billing";
 import { BillingService }   from "../billing.service";
 
 @Component({
@@ -12,7 +12,7 @@ import { BillingService }   from "../billing.service";
 })
 export class FormBillingComponent {
 	@Input() billing: Billing;
-	@Output() message = new EventEmitter<string>();
+	@Output() message = new EventEmitter();
 
 	loading: number = 0;
 
@@ -25,11 +25,10 @@ export class FormBillingComponent {
 				this.billing = result;
 				this.loading--;
 				this.message.emit("BILLING_OK");
-			},
-			this.errorWS
+			}, this.errorWS
 		);
 	}
 
-	errorWS(err: any) { this.message.emit((err instanceof Response) ? err.text() : err); this.loading--; };
+	errorWS(err: Response) { this.message.emit(err); this.loading--; };
 
 }

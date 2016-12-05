@@ -10,26 +10,27 @@
   </div>
 
   <ul class="nav navbar-nav navbar-right hidden-xs">
-    <li><a routerLink="{{ path.ACCOUNT }}" class="dropdown-toggle user"><span class="hidden-xs hidden-sm"> &nbsp; {{ email }}</span></a></li>
-    <li><a class="menu-icon"><i class="fa fa-sign-out"></i></a></li>
+    <li><a routerLink="/{{ path.ACCOUNT }}" class="dropdown-toggle user"><span class="hidden-xs hidden-sm"> &nbsp; {{ email }}</span></a></li>
+    <li><a class="menu-icon" style="cursor:pointer" (click)="logout()"><i class="fa fa-sign-out"></i></a></li>
   </ul>
 </div>
 
 <div id="menu" class="hidden-print hidden-xs">
   <div class="sidebar sidebar-inverse">
     <div class="innerAll" style="clear:both">
-      <a routerLink="{{ path.HOME }}"><img src="/app/images/logoB.png" alt="Logo Sirdata" width="232" height="100"></a><br/>
+      <a routerLink="/{{ path.HOME }}"><img src="/app/_images/logoB.png" alt="Logo Sirdata" width="232" height="100"></a><br/>
     </div>
-    <div class="sidebarMenuWrapper hasNiceScroll" style="overflow-y: hidden; outline: none;">
+    <div class="sidebarMenuWrapper hasNiceScroll" style="overflow-y:hidden;outline: none;">
       <ul class="list-unstyled">
-        <li routerLinkActive="active"><a routerLink="{{ path.HOME }}"><i class="icon-home-fill-1"></i><span>{{ 'MENU.DASHBOARD' | getText }}</span></a></li>
-        <li routerLinkActive="active"><a routerLink="{{ path.ACCOUNT }}"><i class="icon-user-1"></i><span>{{ 'MENU.ACCOUNT' | getText }}</span></a></li>
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+	        <a routerLink="/{{ path.HOME }}"><i class="icon-home-fill-1"></i><span>{{ 'MENU.DASHBOARD' | getText }}</span></a></li>
+        <li routerLinkActive="active"><a routerLink="/{{ path.ACCOUNT }}"><i class="icon-user-1"></i><span>{{ 'MENU.ACCOUNT' | getText }}</span></a></li>
       </ul>
       <my-footer></my-footer>
     </div>
   </div>
 </div>
 
-<script src="/app/scripts/vendor/bootstrap-flat-plus/assets/components/core/js/sidebar.collapse.init.js"></script>
-<script src="/app/scripts/vendor/bootstrap-flat-plus/assets/components/core/js/sidebar.main.init.js"></script>
-<script src="/app/scripts/vendor/bootstrap-flat-plus/assets/components/core/js/core.init.js"></script>
+<script src="/vendor/bootstrap-flat-plus/assets/components/core/js/sidebar.collapse.init.js"></script>
+<script src="/vendor/bootstrap-flat-plus/assets/components/core/js/sidebar.main.init.js"></script>
+<script src="/vendor/bootstrap-flat-plus/assets/components/core/js/core.init.js"></script>

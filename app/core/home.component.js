@@ -9,26 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var alert_service_1 = require("../_directives/alert.service");
-var DashboardComponent = (function () {
-    function DashboardComponent(alertSrvc) {
-        this.alertSrvc = alertSrvc;
-        this.loading = 1;
+var HomeComponent = (function () {
+    function HomeComponent() {
     }
-    DashboardComponent.prototype.ngOnInit = function () {
+    HomeComponent.prototype.ngOnInit = function () {
     };
-    DashboardComponent.prototype.errorWS = function (err) {
-        this.loading--;
-        console.error("After Dispatch...");
-    };
-    DashboardComponent = __decorate([
+    HomeComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            templateUrl: 'dashboard.component.html',
-            providers: []
+            selector: 'my-dashboard',
+            template: '<my-menu></my-menu><router-outlet></router-outlet>'
         }), 
-        __metadata('design:paramtypes', [alert_service_1.AlertService])
-    ], DashboardComponent);
-    return DashboardComponent;
+        __metadata('design:paramtypes', [])
+    ], HomeComponent);
+    return HomeComponent;
 }());
-exports.DashboardComponent = DashboardComponent;
+exports.HomeComponent = HomeComponent;

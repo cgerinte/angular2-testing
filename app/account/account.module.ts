@@ -1,6 +1,8 @@
 import { NgModule }       from '@angular/core';
 
-import { SharedModule }             from "../shared/shared.module";
+import { SharedModule }             from "../_shared/shared.module";
+import { AlertModule }              from "../_directives/alert.module";
+
 import { AccountService }           from "./account.service";
 import { BillingService }           from "./billing.service";
 import { AccountComponent }         from './account.component';
@@ -9,7 +11,7 @@ import { FormPasswordComponent }    from "./forms/form-password.component";
 import { FormBillingComponent }     from "./forms/form-billing.component";
 
 @NgModule({
-	imports     : [ SharedModule ],
+	imports     : [ SharedModule, AlertModule ],
 	declarations: [ AccountComponent, FormAccountComponent, FormPasswordComponent, FormBillingComponent ],
 	providers   : [ AccountService, BillingService ],
 })

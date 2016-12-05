@@ -9,11 +9,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppPath_1 = require("../shared/AppPath");
+var router_1 = require('@angular/router');
+var AppPath_1 = require("../_shared/AppPath");
+var auth_service_1 = require("../auth/auth.service");
 var MenuComponent = (function () {
-    function MenuComponent() {
+    function MenuComponent(router, authSrvc) {
+        this.router = router;
+        this.authSrvc = authSrvc;
         this.path = AppPath_1.APP_PATH;
-        this.email = 'admin@sirdata.com';
+        this.email = localStorage.getItem('email');
     }
     MenuComponent.prototype.toggleArrow = function () {
         var elem = $('#toggleMenu').find('i');
@@ -26,13 +30,20 @@ var MenuComponent = (function () {
             elem.addClass('fa-arrow-left');
         }
     };
+    MenuComponent.prototype.logout = function () {
+        var _this = this;
+        this.authSrvc.logout().then(function () {
+            _this.router.navigate(['login']);
+        });
+    };
+    ;
     MenuComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'my-menu',
             templateUrl: 'menu.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.Router, auth_service_1.AuthService])
     ], MenuComponent);
     return MenuComponent;
 }());

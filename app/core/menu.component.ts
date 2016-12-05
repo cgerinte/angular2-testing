@@ -1,6 +1,8 @@
-import { Component }  from '@angular/core';
+import { Component }    from '@angular/core';
+import { Router }       from '@angular/router';
 
-import { APP_PATH }   from "../shared/AppPath";
+import { APP_PATH }     from "../_shared/AppPath";
+import { AuthService }  from "../auth/auth.service";
 
 @Component({
 	moduleId   : module.id,
@@ -9,7 +11,10 @@ import { APP_PATH }   from "../shared/AppPath";
 })
 export class MenuComponent {
 	path = APP_PATH;
-	email = 'admin@sirdata.com';
+	email = localStorage.getItem('email');
+
+	constructor(private router: Router,
+	            private authSrvc: AuthService) {}
 
 	toggleArrow() {
 		let elem = $('#toggleMenu').find('i');
@@ -22,4 +27,10 @@ export class MenuComponent {
 			elem.addClass('fa-arrow-left');
 		}
 	}
+
+	logout() {
+		this.authSrvc.logout().then(() => {
+			this.router.navigate(['login']);
+		});
+	};
 }

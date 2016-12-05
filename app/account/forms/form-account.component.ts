@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 import { Response }         from '@angular/http';
 
-import { Partner }          from "../../models/partner";
+import { Partner }          from "../../_models/partner";
 import { AccountService }   from "../account.service";
 
 @Component({
@@ -12,7 +12,7 @@ import { AccountService }   from "../account.service";
 })
 export class FormAccountComponent implements OnInit {
 	@Input() partner: Partner;
-	@Output() message = new EventEmitter<string>();
+	@Output() message = new EventEmitter<[string, number]>();
 
 	loading: number = 0;
 	countries: any[];
@@ -20,21 +20,22 @@ export class FormAccountComponent implements OnInit {
 	constructor(private accountSrvc: AccountService) {}
 
 	ngOnInit() {
-		this.countries = this.accountSrvc.getCountries();
+		this.accountSrvc.getCountries().subscribe(res => this.countries = res);
 	}
 
 	update() {
 		this.loading++;
-		this.accountSrvc.update(this.partner).subscribe(
-			(result: Partner) => {
+		this.accountSrvc.update(this.partner)
+			.subscribe((result: Partner) => {
 				this.partner = result;
 				this.loading--;
-				this.message.emit("ACCOUNT_OK");
-			},
-			this.errorWS
-		);
+				this.message.emit([ "ACCOUNT_OK", 200 ]);
+			}, this.errorWS);
 	}
-	
-	errorWS(err: any) { this.message.emit((err instanceof Response) ? err.text() : err); this.loading--; };
+
+	errorWS(err: Response) {
+		console.log(err);
+		this.loading--;
+	};
 
 }

@@ -1,0 +1,5 @@
+<div *ngIf="message && message.text" class="separator top">
+	<div class="notif notif-{{ message.status }}" style="margin:auto;text-align:center;cursor:pointer" (click)="clearMsg()">
+		{{ message.text | getError }}
+	</div>
+</div>

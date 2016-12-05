@@ -40,6 +40,14 @@ const contentText = {
 			fr: "Société",
 			en: "Company"
 		},
+		PSW        : {
+			fr: "Mot de passe",
+			en: "Password"
+		},
+		RE_PSW     : {
+			fr: "Confirmer le mot de passe",
+			en: "Confirm password"
+		},
 		CHG_PSW    : {
 			fr: "Changer de mot de passe",
 			en: "Change password"
@@ -139,6 +147,62 @@ const contentText = {
 			en: "Dashboard"
 		}
 	},
+	LOGIN     : {
+		TITLE       : {
+			fr: "Connectez-vous à votre compte",
+			en: "Login to your account"
+		},
+		LOGIN_BTN   : {
+			fr: "Connexion",
+			en: "Login"
+		},
+		SIGNUP_TITLE: {
+			fr: "Créer un compte",
+			en: "Create an account"
+		},
+		SIGNUP_BTN  : {
+			fr: "Créer",
+			en: "Create"
+		},
+		FORGOT_PSW  : {
+			fr: "Mot de passe oublié ?",
+			en: "Forgot your password ?"
+		},
+		RESET_PSW   : {
+			fr: "Réinitialisez votre mot de passe",
+			en: "Reset your password"
+		},
+		YOUR_EMAIL  : {
+			fr: "Votre email",
+			en: "Your email"
+		},
+		RESET_BTN   : {
+			fr: "Envoyez-moi un lien de réinitialisation",
+			en: "Send me a reset link."
+		},
+		NEW_PSW     : {
+			fr: "Entrez un nouveau mot de passe",
+			en: "Enter a new password"
+		},
+		RE_NEW_PSW  : {
+			fr: "Confirmez votre nouveau mot de passe",
+			en: "Re-type your new password"
+		},
+		BACK_LOGIN  : {
+			fr: "Retourner sur l'écran de connexion",
+			en: "Back to Login"
+		}
+	},
+	TAGS: {
+		'AGREE' : {
+			fr : "J'accepte les",
+			en : "I agree to the"
+		},
+		'TERMS' : {
+			fr : "conditions d'utilisations",
+			en : "terms of use"
+		}
+	}
 };
 
 @Pipe({ name: 'getText' })
