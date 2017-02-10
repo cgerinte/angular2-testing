@@ -63,7 +63,7 @@
             <div class="widget-head"><h3 class="heading"><i class="fa fa-download"></i> {{ 'ARRAY.DOWNLOAD' | getText }}</h3></div>
 
             <div class="widget-body innerAll" *ngIf="currentSite.data_comport || currentSite.data_matching">
-                <a href id="linkZipAddon" target="_blank" (click)="download()">Download files (zip)</a>
+                <a [href]="link" id="linkZipAddon" target="_blank" (click)="download()">Download files (zip)</a>
             </div>
         </div>
         <!-- End Addon Files -->

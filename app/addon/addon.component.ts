@@ -16,6 +16,7 @@ export class AddonComponent implements OnInit {
     @Input() currentSite:Addon = new Addon;
     sites:Addon[];
     loading:number = 0;
+    link:string;
 
     private linkZip = $('#linkZipAddon');
 
@@ -29,6 +30,7 @@ export class AddonComponent implements OnInit {
             (result:Addon[]) => {
                 this.sites = result;
                 this.currentSite = result[0];
+                this.link = apiUrl + localStorage.getItem('id') + '/addon/' + result[0].siteID + '/download';
                 this.loading--;
             }, this.errorWS);
     };
@@ -54,12 +56,12 @@ export class AddonComponent implements OnInit {
 
     download () {
         this.makeAddon();
-        //document.getElementById('linkZipAddon').href = apiUrl + localStorage.getItem('id') + '/addon/' + this.currentSite.siteID + '/download';
+        this.link = apiUrl + localStorage.getItem('id') + '/addon/' + this.currentSite.siteID + '/download';
     };
 
     private errorWS (err:Response|any) {
         this.loading--;
-        //console.error(err);
+        console.error(err);
     }
 
 }
