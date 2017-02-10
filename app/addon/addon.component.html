@@ -1,0 +1,73 @@
+<div id="content">
+    <h1 class="bg-white content-heading border-bottom">{{ 'ADDON.HEADER' | getText }} : &nbsp;&nbsp;
+        <i *ngIf="loading" class="fa fa-spinner fa-spin"></i></h1>
+
+    <div class="innerLR">
+
+        <alert-msg></alert-msg>
+
+        <div class="widget widget-inverse">
+
+            <div class="widget-head"><h3 class="heading"><i class="fa fa-cogs"></i> {{ 'ARRAY.PARAMS' | getText }}</h3></div>
+
+            <div class="widget-body">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="sites" class="control-label">{{ 'FORM_FIELD.CURRENT_SITE' | getText }} : </label>
+                            <select id="sites" class="form-control" [(ngModel)]="currentSite">
+                                <option [ngValue]="site" *ngFor="let site of sites" >{{ site.name }}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8 col-md-offset-1">
+                        <form name="form" class="form-horizontal" (submit)="update();myForm.form.markAsPristine()" #myForm="ngForm">
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Data comportementale : </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="radio_dc" [value]="1" [(ngModel)]="currentSite.data_comport">
+                                    {{ 'FORM_FIELD.ENABLE' | getText }}</label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="radio_dc" [value]="0" [(ngModel)]="currentSite.data_comport">
+                                    {{ 'FORM_FIELD.DISABLE' | getText }}</label>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Data matching : </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="radio_dm" [value]="1" [(ngModel)]="currentSite.data_matching">
+                                    {{ 'FORM_FIELD.ENABLE' | getText }}</label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="radio_dm" [value]="0" [(ngModel)]="currentSite.data_matching">
+                                    {{ 'FORM_FIELD.DISABLE' | getText }}</label>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-4">
+                                    <button *ngIf="!loading" type="submit" class="btn btn-success" [disabled]="!myForm.form.dirty">
+                                        {{ 'FORM_FIELD.BTN_SAVE' | getText }}</button>
+                                    <button *ngIf="loading && myForm.form.dirty" class="btn btn-success" disabled> {{ 'FORM_FIELD.BTN_SAVING' | getText }}</button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Addon Files -->
+        <div class="widget widget-inverse">
+            <div class="widget-head"><h3 class="heading"><i class="fa fa-download"></i> {{ 'ARRAY.DOWNLOAD' | getText }}</h3></div>
+
+            <div class="widget-body innerAll" *ngIf="currentSite.data_comport || currentSite.data_matching">
+                <a href id="linkZipAddon" target="_blank" (click)="download()">Download files (zip)</a>
+            </div>
+        </div>
+        <!-- End Addon Files -->
+
+    </div>
+
+</div>

@@ -1,4 +1,4 @@
 node_modules/
 .idea/
-/vendor/bootstrap-flat-plus/
 app/*.js
+vendor/bootstrap-flat-plus

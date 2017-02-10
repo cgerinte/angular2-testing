@@ -1,1 +1,1 @@
-export const apiUrl: string = "http://api.sirdata.local/api/extra/";
+export const apiUrl: string = "http://ws.sirdata.local/api/extra/";

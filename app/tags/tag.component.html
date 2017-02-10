@@ -1,0 +1,93 @@
+<div id="content">
+    <h1 class="bg-white content-heading border-bottom">{{ 'MENU.TAGS' | getText }} : &nbsp;&nbsp;
+        <i *ngIf="loading" class="fa fa-spinner fa-spin"></i></h1>
+
+    <div class="innerLR">
+
+        <alert-msg></alert-msg>
+
+        <div class="separator top"></div>
+        <div class="widget widget-inverse">
+
+            <div class="widget-body">
+                <form name="form" class="form-horizontal" #myForm="ngForm">
+                    <div class="input-group col-md-12">
+                        <input type="text" class="form-control" name="website"
+                               placeholder="{{ 'FORM_MSG.ADD_TAG' | getText }}"
+                               [(ngModel)]="website" required>
+
+                        <div class="input-group-btn">
+                            <button class="btn btn-primary" [disabled]="!myForm.form.valid || loading"
+                                    (click)="store()">
+                                {{ 'ACTION.ADD' | getText }}
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="widget-head border-bottom-none">
+                <h3 class="heading"><i class="fa fa-tags"></i> {{ 'ARRAY.TAGS' | getText }}</h3>
+            </div>
+
+            <div class="widget-body list">
+                <ul [hidden]="!websites.length">
+                    <li *ngFor="let website of websites">
+                        <span>{{ website.siteID }} - {{ website.name }}</span>
+
+                        <div class="pull-right">
+							<span class="btn-group btn-group-xs">
+								<button href="#modal" (click)="buildTag(website.siteID)" class="btn btn-primary" data-toggle="modal">
+									<i class="fa icon-inbox-fill-2"></i></button>
+								<button (click)="remove(website.id)" class="btn btn-danger"><i class="fa fa-times"></i></button>
+							</span>
+                        </div>
+                    </li>
+                </ul>
+
+                <div [hidden]="loading || websites.length"><h3>{{ 'MSG.NO_TAG' | getText }}</h3></div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="modal" class="modal fade" style="display:none" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div [hidden]="!checkTerms" class="modal-header">
+                    <h4 class="modal-title">{{ 'TAGS.GENERIC' | getText }}</h4>
+                </div>
+
+                <div class="modal-body padding-none">
+
+                    <div class="widget margin-none border-none">
+                        <div class="widget-body innerAll inner-2x">
+
+                            <!-- Step 1 -->
+                            <div [hidden]="checkTerms" class="tab-pane">
+                                {{ 'TAGS.AGREE' | getText }}<a href="{{ pathContract }}">{{ 'TAGS.TERMS' | getText }}</a> ?
+                            </div>
+                            <!-- // Step 1 END -->
+
+                            <!-- Step 2 -->
+                            <div [hidden]="!checkTerms" class="tab-pane"> <pre>{{ script }}</pre> </div>
+                            <!-- // Step 2 END -->
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <ul class="pagination margin-bottom-none pull-right" style="cursor:pointer">
+                        <li *ngIf="!checkTerms" class="next success" (click)="show()"><a class="no-ajaxify">{{ 'ACTION.AGREE' | getText }}</a></li>
+                        <li *ngIf="!checkTerms" class="next finish danger"><a data-dismiss="modal" class="no-ajaxify">{{ 'ACTION.DISAGREE' | getText }}</a></li>
+                        <li *ngIf="checkTerms" class="next finish"><a data-dismiss="modal" class="no-ajaxify">OK</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

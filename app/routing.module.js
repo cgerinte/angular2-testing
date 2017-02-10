@@ -16,6 +16,8 @@ var login_component_1 = require("./auth/login.component");
 var home_component_1 = require("./core/home.component");
 var dashboard_component_1 = require("./dashboard/dashboard.component");
 var account_component_1 = require("./account/account.component");
+var addon_component_1 = require("./addon/addon.component");
+var tag_component_1 = require("./tags/tag.component");
 var appRoutes = [
     { path: AppPath_1.APP_PATH.LOGIN, component: login_component_1.LoginComponent },
     {
@@ -24,8 +26,11 @@ var appRoutes = [
         canActivate: [auth_guard_1.AuthGuard],
         canActivateChild: [auth_guard_1.AuthGuard],
         children: [
+            { path: '', pathMatch: 'full', redirectTo: AppPath_1.APP_PATH.HOME },
             { path: AppPath_1.APP_PATH.HOME, component: dashboard_component_1.DashboardComponent },
             { path: AppPath_1.APP_PATH.ACCOUNT, component: account_component_1.AccountComponent },
+            { path: AppPath_1.APP_PATH.TAGS, component: tag_component_1.TagComponent },
+            { path: AppPath_1.APP_PATH.ADDON, component: addon_component_1.AddonComponent },
         ]
     },
     { path: '**', redirectTo: AppPath_1.APP_PATH.HOME }

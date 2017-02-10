@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var Rx_1 = require('rxjs/Rx');
 require('rxjs/add/operator/map');
-require('rxjs/add/operator/catch');
 var constants_1 = require("../_shared/constants");
 var http_client_1 = require("../_shared/http-client");
 var mock_countries_1 = require("../_mock/mock-countries");
@@ -19,9 +18,10 @@ var AccountService = (function () {
     function AccountService(http) {
         this.http = http;
         this.URL = constants_1.apiUrl + "account/";
+        this.pID = +localStorage.getItem('id');
     }
-    AccountService.prototype.get = function (id) {
-        return this.http.get(this.URL + id)
+    AccountService.prototype.get = function () {
+        return this.http.get(this.URL + this.pID)
             .map(function (res) { return res.json(); });
     };
     AccountService.prototype.update = function (partner) {
@@ -29,8 +29,7 @@ var AccountService = (function () {
             .map(function (res) { return res.json(); });
     };
     AccountService.prototype.updatePsw = function (password) {
-        var pID = localStorage.getItem('id');
-        return this.http.put(this.URL + pID + "/psw", password);
+        return this.http.put(this.URL + this.pID + "/psw", password);
     };
     AccountService.prototype.getCountries = function () {
         return Rx_1.Observable.of(mock_countries_1.COUNTRIES);

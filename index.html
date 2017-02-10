@@ -6,8 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet/less" href="app/_styles/index.less"/>
+	  <!--[if lt IE 9]><link rel="stylesheet" href="vendor/bootstrap-flat-plus/assets/components/library/bootstrap/css/bootstrap.min.css"/><![endif]-->
     <link rel="stylesheet/less" href="app/_styles/style.less"/>
+    <link rel="stylesheet/less" href="app/_styles/index.less"/>
     <link rel="stylesheet" type="text/css" href="app/_styles/custom.css"/>
 
     <!-- Polyfill(s) for older browsers -->
@@ -18,8 +19,8 @@
 
     <script src="/vendor/bootstrap-flat-plus/assets/components/plugins/less-js/less.min.js"></script>
     <script src="/vendor/bootstrap-flat-plus/assets/components/library/jquery/jquery.min.js"></script>
-    <script src="/vendor/bootstrap-flat-plus/assets/components/library/modernizr/modernizr.js"></script>
     <script src="/vendor/bootstrap-flat-plus/assets/components/library/jquery/jquery-migrate.min.js"></script>
+    <script src="/vendor/bootstrap-flat-plus/assets/components/library/modernizr/modernizr.js"></script>
     <script src="/vendor/bootstrap-flat-plus/assets/components/plugins/browser/ie/ie.prototype.polyfill.js"></script>
 
     <script src="/vendor/jquery.plugin.min.js"></script>
@@ -31,6 +32,32 @@
 
   <body>
     <my-app><h1 style="text-align:center;opacity:0.7;"><i class="fa fa-spinner fa-5x fa-spin"></i></h1></my-app>
+
+    <!-- Global -->
+    <script>
+	    var basePath = '',
+			    commonPath = 'scripts/vendor/bootstrap-flat-plus/assets/',
+			    rootPath = '/',
+			    DEV = false,
+			    componentsPath = 'scripts/vendor/bootstrap-flat-plus/assets/components/';
+
+	    var primaryColor = '#6e973c',
+			    dangerColor = '#b55151',
+			    infoColor = '#466baf',
+			    successColor = '#8baf46',
+			    warningColor = '#ab7a4b',
+			    inverseColor = '#45484d';
+
+	    var themerPrimaryColor = primaryColor;
+    </script>
+
+    <script src="/vendor/bootstrap-flat-plus/assets/components/plugins/nicescroll/jquery.nicescroll.min.js"></script>
+    <script src="/vendor/bootstrap-flat-plus/assets/components/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="/vendor/bootstrap-flat-plus/assets/components/library/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/vendor/bootstrap-flat-plus/assets/components/core/js/sidebar.collapse.init.js"></script>
+    <script src="/vendor/bootstrap-flat-plus/assets/components/core/js/sidebar.main.init.js"></script>
+    <script src="/vendor/bootstrap-flat-plus/assets/components/core/js/animations.init.js"></script>
+    <script src="/vendor/bootstrap-flat-plus/assets/components/core/js/core.init.js"></script>
 
   </body>
 </html>

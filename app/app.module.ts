@@ -6,7 +6,6 @@ import { HttpClient }           from "./_shared/http-client";
 
 import { AppComponent }         from './app.component';
 import { AuthGuard }            from "./_guards/auth.guard";
-import { AlertService }         from "./_directives/alert.service";
 import { AuthModule }           from "./auth/auth.module";
 import { HomeModule }           from "./core/home.module";
 
@@ -17,7 +16,6 @@ import { HomeModule }           from "./core/home.module";
 	declarations: [ AppComponent ],
 	providers   : [ AuthGuard,
 		{ provide: LocationStrategy, useClass: HashLocationStrategy },
-		{ provide: AlertService, useClass: AlertService },
 		{ provide: HttpClient, useClass: HttpClient }
 	],
 	bootstrap   : [ AppComponent ]

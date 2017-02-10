@@ -19,17 +19,6 @@ var MenuComponent = (function () {
         this.path = AppPath_1.APP_PATH;
         this.email = localStorage.getItem('email');
     }
-    MenuComponent.prototype.toggleArrow = function () {
-        var elem = $('#toggleMenu').find('i');
-        if (elem.hasClass('fa-arrow-left')) {
-            elem.removeClass('fa-arrow-left');
-            elem.addClass('fa-arrow-down');
-        }
-        else {
-            elem.removeClass('fa-arrow-down');
-            elem.addClass('fa-arrow-left');
-        }
-    };
     MenuComponent.prototype.logout = function () {
         var _this = this;
         this.authSrvc.logout().then(function () {

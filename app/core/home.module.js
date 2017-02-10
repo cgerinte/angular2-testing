@@ -12,24 +12,22 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 var core_1 = require('@angular/core');
-var shared_module_1 = require("../_shared/shared.module");
-var alert_module_1 = require("../_directives/alert.module");
-var home_component_1 = require("./home.component");
-var menu_component_1 = require('./menu.component');
-var footer_component_1 = require('./footer.component');
 var module_import_guard_1 = require('./module-import-guard');
+var shared_module_1 = require("../_shared/shared.module");
 var dashboard_module_1 = require("../dashboard/dashboard.module");
 var account_module_1 = require("../account/account.module");
+var tag_module_1 = require("../tags/tag.module");
+var addon_module_1 = require("../addon/addon.module");
+var home_component_1 = require('./home.component');
+var menu_component_1 = require('./menu.component');
+var footer_component_1 = require('./footer.component');
 var HomeModule = (function () {
     function HomeModule(parentModule) {
         module_import_guard_1.throwIfAlreadyLoaded(parentModule, 'HomeModule');
     }
     HomeModule = __decorate([
         core_1.NgModule({
-            imports: [
-                alert_module_1.AlertModule, shared_module_1.SharedModule,
-                dashboard_module_1.DashboardModule, account_module_1.AccountModule
-            ],
+            imports: [shared_module_1.SharedModule, dashboard_module_1.DashboardModule, account_module_1.AccountModule, tag_module_1.TagModule, addon_module_1.AddonModule],
             declarations: [home_component_1.HomeComponent, menu_component_1.MenuComponent, footer_component_1.FooterComponent]
         }),
         __param(0, core_1.Optional()),

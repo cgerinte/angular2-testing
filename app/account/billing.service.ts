@@ -12,11 +12,12 @@ import { HttpClient }       from "../_shared/http-client";
 @Injectable()
 export class BillingService {
 	private URL = apiUrl + "billing/";
+	private pID: number = +localStorage.getItem('id');
 
 	constructor(private http: HttpClient) {}
 
-	get(pID: number): Observable<Billing> {
-		return this.http.get(this.URL + pID)
+	get(): Observable<Billing> {
+		return this.http.get(this.URL + this.pID)
 			.map((res: Response) => res.json());
 	}
 

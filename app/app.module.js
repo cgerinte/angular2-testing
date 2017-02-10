@@ -14,7 +14,6 @@ var routing_module_1 = require('./routing.module');
 var http_client_1 = require("./_shared/http-client");
 var app_component_1 = require('./app.component');
 var auth_guard_1 = require("./_guards/auth.guard");
-var alert_service_1 = require("./_directives/alert.service");
 var auth_module_1 = require("./auth/auth.module");
 var home_module_1 = require("./core/home.module");
 var AppModule = (function () {
@@ -27,7 +26,6 @@ var AppModule = (function () {
             declarations: [app_component_1.AppComponent],
             providers: [auth_guard_1.AuthGuard,
                 { provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy },
-                { provide: alert_service_1.AlertService, useClass: alert_service_1.AlertService },
                 { provide: http_client_1.HttpClient, useClass: http_client_1.HttpClient }
             ],
             bootstrap: [app_component_1.AppComponent]

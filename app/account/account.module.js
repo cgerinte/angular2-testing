@@ -11,12 +11,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var shared_module_1 = require("../_shared/shared.module");
 var alert_module_1 = require("../_directives/alert.module");
-var account_service_1 = require("./account.service");
-var billing_service_1 = require("./billing.service");
+var account_service_1 = require('./account.service');
+var billing_service_1 = require('./billing.service');
 var account_component_1 = require('./account.component');
-var form_account_component_1 = require("./forms/form-account.component");
-var form_password_component_1 = require("./forms/form-password.component");
-var form_billing_component_1 = require("./forms/form-billing.component");
+var form_account_component_1 = require('./forms/form-account.component');
+var form_billing_component_1 = require('./forms/form-billing.component');
+var form_password_component_1 = require('./forms/form-password.component');
 var AccountModule = (function () {
     function AccountModule() {
     }

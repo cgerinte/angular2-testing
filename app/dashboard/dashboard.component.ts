@@ -5,21 +5,16 @@ import { AlertService }         from "../_directives/alert.service";
 
 @Component({
 	moduleId   : module.id,
-	templateUrl: 'dashboard.component.html',
-	providers  : [  ]
+	templateUrl: 'dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
 
 	loading: number = 1;
 
-	constructor(private alertSrvc: AlertService) {}
+	constructor() {}
 
 	ngOnInit() {
 	}
 
-	errorWS(err: Response|any) {
-		this.loading--;
-		console.error("After Dispatch...");
-	}
 
 }

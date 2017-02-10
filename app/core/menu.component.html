@@ -1,34 +1,31 @@
 <div class="navbar navbar-fixed-top navbar-primary main" role="navigation">
-  <div class="navbar-header pull-left">
-    <div class="navbar-brand">
-      <a id="toggleMenu" class="toggle-button toggle-sidebar btn-navbar" style="cursor:pointer" (click)="toggleArrow()">
-				<span class="appbrand innerL">
-					<i class="fa fa-arrow-down"></i> &nbsp;&nbsp;&nbsp; MENU
-				</span>
-      </a>
-    </div>
-  </div>
 
-  <ul class="nav navbar-nav navbar-right hidden-xs">
-    <li><a routerLink="/{{ path.ACCOUNT }}" class="dropdown-toggle user"><span class="hidden-xs hidden-sm"> &nbsp; {{ email }}</span></a></li>
-    <li><a class="menu-icon" style="cursor:pointer" (click)="logout()"><i class="fa fa-sign-out"></i></a></li>
-  </ul>
+	<div class="navbar-header pull-left">
+		<div class="navbar-brand">
+			<span class="appbrand innerL">MENU</span>
+		</div>
+	</div>
+
+	<ul class="nav navbar-nav navbar-right hidden-xs">
+		<li class="dropdown"><a routerLink="/{{ path.ACCOUNT }}" class="dropdown-toggle">{{ email }}</a></li>
+		<li><a routerLink="/{{ path.LOGIN }}" class="menu-icon" (click)="logout()"><i class="fa fa-sign-out"></i></a></li>
+	</ul>
 </div>
 
 <div id="menu" class="hidden-print hidden-xs">
-  <div class="sidebar sidebar-inverse">
-    <div class="innerAll" style="clear:both">
-      <a routerLink="/{{ path.HOME }}"><img src="/app/_images/logoB.png" alt="Logo Sirdata" width="232" height="100"></a><br/>
-    </div>
-    <div class="sidebarMenuWrapper hasNiceScroll" style="overflow-y:hidden;outline: none;">
-      <ul class="list-unstyled">
-        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-	        <a routerLink="/{{ path.HOME }}"><i class="icon-home-fill-1"></i><span>{{ 'MENU.DASHBOARD' | getText }}</span></a></li>
-        <li routerLinkActive="active"><a routerLink="/{{ path.ACCOUNT }}"><i class="icon-user-1"></i><span>{{ 'MENU.ACCOUNT' | getText }}</span></a></li>
-      </ul>
-      <my-footer></my-footer>
-    </div>
-  </div>
+	<div class="sidebar sidebar-inverse">
+		<div class="user-profile media innerAll">
+			<a routerLink="/{{ path.HOME }}"><img src="/app/_images/logoB.png" alt="Logo Sirdata" width="232" height="100"></a>
+		</div>
+		<div class="sidebarMenuWrapper hasNiceScroll" style="overflow-y:hidden;outline:none" tabindex="5005">
+			<ul class="list-unstyled">
+				<li routerLinkActive="active"><a routerLink="/{{ path.HOME }}"><i class=" icon-projector-screen-line"></i><span>{{ 'MENU.DASHBOARD' | getText }}</span></a></li>
+				<li routerLinkActive="active"><a routerLink="/{{ path.ACCOUNT }}"><i class="icon-user-1"></i><span>{{ 'MENU.ACCOUNT' | getText }}</span></a></li>
+				<li routerLinkActive="active"><a routerLink="/{{ path.TAGS }}"><i class="icon-tag-2"></i><span>{{ 'MENU.TAGS' | getText }}</span></a></li>
+				<li routerLinkActive="active"><a routerLink="/{{ path.ADDON }}"><i class="icon-browser"></i><span>{{ 'MENU.ADDON' | getText }}</span></a></li>
+			</ul>
+		</div>
+	</div>
 </div>
 
 <script src="/vendor/bootstrap-flat-plus/assets/components/core/js/sidebar.collapse.init.js"></script>

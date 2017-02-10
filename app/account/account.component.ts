@@ -1,49 +1,48 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit }         from '@angular/core';
 import { Response }         from '@angular/http';
 
-import { Billing }          from "../_models/billing";
-import { Partner }          from "../_models/partner";
 import { AlertService }     from "../_directives/alert.service";
-import { AccountService }   from "./account.service";
-import { BillingService }   from "./billing.service";
+import { Billing, Partner } from "../_models/index";
+
+import { AccountService }   from './account.service';
+import { BillingService }   from './billing.service';
 
 @Component({
 	moduleId   : module.id,
-	templateUrl: 'account.component.html',
-	providers  : [ AccountService, BillingService ]
+	templateUrl: 'account.component.html'
 })
 export class AccountComponent implements OnInit {
 	@Input() activeTab: string = 'details';
 	@Input() partner: Partner = new Partner;
 	@Input() billing: Billing = new Billing;
 
-	loading: number = 1;
+	loading: number = 0;
 
 	constructor(private alertSrvc: AlertService,
 	            private accountSrvc: AccountService,
 	            private billingSrvc: BillingService) {}
 
 	ngOnInit() {
-		const id: number = +localStorage.getItem('id');
-		this.accountSrvc.get(id).subscribe(
+		this.loading = 2;
+		this.accountSrvc.get().subscribe(
 			(result: Partner) => {
 				this.partner = result;
 				this.loading--;
 			}, this.errorWS );
-		/*this.billingSrvc.get(id).subscribe(
+		this.billingSrvc.get().subscribe(
 			(result: Billing) => {
 				this.billing = result;
 				this.loading--;
-			}, this.errorWS );*/
+			}, this.errorWS );
 	}
 
 	onMessage(msg: [string, number]) {
 		this.alertSrvc.dispatch(msg);
 	}
 
-	errorWS(err: Response|any) {
+	private errorWS(err: Response|any) {
 		this.loading--;
-		console.error("After Dispatch...");
+		console.error(err);
 	}
 
 }

@@ -18,7 +18,7 @@ var HomeComponent = (function () {
         core_1.Component({
             moduleId: module.id,
             selector: 'my-dashboard',
-            template: '<my-menu></my-menu><router-outlet></router-outlet>'
+            template: "<my-menu></my-menu><router-outlet></router-outlet>"
         }), 
         __metadata('design:paramtypes', [])
     ], HomeComponent);

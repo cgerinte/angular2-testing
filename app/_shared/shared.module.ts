@@ -5,13 +5,13 @@ import { HttpModule }       from '@angular/http';
 import { RouterModule }     from '@angular/router';
 
 import { GetTextMsgPipe }   from './text-msg.pipe';
-import { GetErrorPipe }     from './text-error.pipe';
+import { GetAlertPipe }     from './text-alert.pipe';
 
 @NgModule({
-	declarations: [ GetTextMsgPipe, GetErrorPipe ],
+	declarations: [ GetTextMsgPipe, GetAlertPipe ],
 	exports     : [
 		BrowserModule, FormsModule, HttpModule, RouterModule,
-		GetTextMsgPipe, GetErrorPipe
+		GetTextMsgPipe, GetAlertPipe
 	]
 })
 export class SharedModule {

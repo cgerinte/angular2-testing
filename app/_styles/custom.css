@@ -27,6 +27,14 @@ a:hover { text-decoration: none; }
 	background-color: #466baf;
 }
 
+.alert.alert-announce {
+    background: #466baf;
+    color: #FFF;
+    border-color: #93b9d8;
+}
+.alert.alert-announce.close { color: #7399b9; }
+
+
 /* Décale vers le bas pour ne pas cacher le logo */
 .sidebar > .sidebarMenuWrapper { top: 130px; overflow-y: hidden; }
 
